@@ -1,0 +1,20 @@
+---
+- name: Install and start Nginx
+  hosts: dev
+  become: yes
+
+  tasks:
+    - name: Install nginx
+      yum:
+        name: nginx
+        state: present
+
+    - name: Enable nginx service
+      systemd:
+        name: nginx
+        enabled: yes
+
+    - name: Start nginx service
+      systemd:
+        name: nginx
+        state: started
