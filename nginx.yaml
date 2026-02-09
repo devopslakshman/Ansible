@@ -1,5 +1,5 @@
 ---
-- name: Install and start Nginx
+- name: InstallNginx
   hosts: dev
   become: yes
 
