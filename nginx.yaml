@@ -1,20 +1,23 @@
 ---
 - name: Install Nginx
-  hosts: dev
+  hosts: all
+  connection: all
   become: yes
 
   tasks:
     - name: Install nginx
-      yum:
+      ansible.builtin.yum:
         name: nginx
         state: present
 
     - name: Enable nginx service
-      systemd:
+
+      ansible.builtin.service:
         name: nginx
         enabled: yes
 
     - name: Start nginx service
+    ansible.builtin.service:
       systemd:
         name: nginx
         state: started
